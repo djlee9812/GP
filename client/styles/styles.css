@@ -1,0 +1,12 @@
+h1, h2, h3, h4, h5, h6, a, p, span{
+	font-family: 'Raleway', sans-serif !important;
+}
+.re-title-v1, .re-title-v2 {
+	font-family: 'Lato', sans-serif !important;
+}
+#logo-header {
+	height: 140%;
+}
+.slider-globe {
+	width: 750px;
+}

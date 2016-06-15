@@ -1,0 +1,91 @@
+<template name="contact">
+	<!--=== Breadcrumbs ===-->
+	<div class="breadcrumbs">
+		<div class="container">
+			<h1 class="pull-left">Contact Us</h1>
+		</div>
+	</div><!--/breadcrumbs-->
+	<!--=== End Breadcrumbs ===-->
+
+	<!-- Google Map -->
+	<div id="map" class="map">
+		{{> googleMap name="exampleMap" options=exampleMapOptions}}
+	</div><!---/map-->
+	<!-- End Google Map -->
+
+	<!--=== Content Part ===-->
+	<div class="container content">
+		<div class="row margin-bottom-30">
+			<div class="col-md-9 mb-margin-bottom-30">
+				<div class="headline"><h2>Contact Form</h2></div>
+				<p>Contact us to ask any questions! Fill out the form below to send us an email.</p><br />
+
+				<form action="assets/php/sky-forms-pro/demo-contacts-process.php" method="post" id="sky-form3" class="sky-form contact-style">
+					<fieldset class="no-padding">
+						<label>Name <span class="color-red">*</span></label>
+						<div class="row sky-space-20">
+							<div class="col-md-7 col-md-offset-0">
+								<div>
+									<input type="text" name="name" id="name" class="form-control">
+								</div>
+							</div>
+						</div>
+
+						<label>Email <span class="color-red">*</span></label>
+						<div class="row sky-space-20">
+							<div class="col-md-7 col-md-offset-0">
+								<div>
+									<input type="text" name="email" id="email" class="form-control">
+								</div>
+							</div>
+						</div>
+
+						<label>Message <span class="color-red">*</span></label>
+						<div class="row sky-space-20">
+							<div class="col-md-11 col-md-offset-0">
+								<div>
+									<textarea rows="8" name="message" id="message" class="form-control"></textarea>
+								</div>
+							</div>
+						</div>
+
+						<p><button type="submit" class="btn-u">Send Message</button></p>
+					</fieldset>
+
+					<div class="message">
+						<i class="rounded-x fa fa-check"></i>
+						<p>Your message was successfully sent!</p>
+					</div>
+				</form>
+			</div><!--/col-md-9-->
+
+			<div class="col-md-3">
+				<!-- Contacts -->
+				<div class="headline"><h2>Contacts</h2></div>
+				<ul class="list-unstyled who margin-bottom-30">
+					<li><a href="#"><i class="fa fa-home"></i>10582 Katella Ave. Anaheim, CA 92804</a></li>
+					<li><a href="#"><i class="fa fa-envelope"></i>admin@gpusa.org</a></li>
+					<li><a href="#"><i class="fa fa-phone"></i>(714) 774 9191</a></li>
+					<li><a href="/"><i class="fa fa-globe"></i>http://www.gpusa.org</a></li>
+				</ul>
+
+				<!-- Business Hours -->
+				<div class="headline"><h2>Business Hours</h2></div>
+				<ul class="list-unstyled margin-bottom-30">
+					<li><strong>Monday-Friday:</strong> 9am to 5pm</li>
+					<li><strong>Saturday-Sunday:</strong> Closed</li>
+				</ul>
+
+				<!-- Why we are? -->
+				<div class="headline"><h2>Why we are?</h2></div>
+				<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.</p>
+				<ul class="list-unstyled">
+					<li><i class="fa fa-check color-green"></i> Odio dignissimos ducimus</li>
+					<li><i class="fa fa-check color-green"></i> Blanditiis praesentium volup</li>
+					<li><i class="fa fa-check color-green"></i> Eos et accusamus</li>
+				</ul>
+			</div><!--/col-md-3-->
+		</div><!--/row-->
+	</div><!--/container-->
+	<!--=== End Content Part ===-->
+</template>
