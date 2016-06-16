@@ -7,7 +7,7 @@ Template.calendar.helpers({
 		maxTime: '19:00:00',
 		eventColor: '#18ba9b',
     // Function providing events reactive computation for fullcalendar plugin
-    events: function(start, end, timezone, callback) {
+    events: function(start, end, timezone, callback) {/*
       //console.log(start);
       //console.log(end);
       //console.log(timezone);
@@ -28,7 +28,7 @@ Template.calendar.helpers({
       		events.push(eventDetails);
       	});
       }
-      callback(events);
+      callback(events);*/
     },
   }
 });

@@ -2242,7 +2242,7 @@
   height: auto;
   padding: 50px 0;
   position: relative;
-  background: url(../img/bg/11.jpg) repeat fixed;
+  background: url(/parallaxbg.jpg) repeat fixed;
   background-size: cover;
 }
 

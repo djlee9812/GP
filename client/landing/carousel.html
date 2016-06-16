@@ -1,0 +1,21 @@
+<template name="carousel">
+	<div class="container">
+		<!-- Owl Carousel v4 -->
+		<div class="owl-carousel-v4 margin-bottom-40">
+			<div class="text-center margin-bottom-50">
+				<h2 class="title-v2 title-center">Featured Photos</h2>
+				<p class="space-lg-hor">These featured photos are collected from both the GP USA office in Anaheim, CA and the mission fields around the world.</p>
+			</div>
+
+			<div class="owl-slider-v4">
+				{{#each photos}}
+				{{> item}}
+				{{/each}}
+			</div>
+		</div>
+		<!-- End Owl Carousel v4 -->
+		<div class="center-align">
+			<a class="btn-u btn-u-lg margin-bottom-30" href="/events/gallery">Visit the Gallery</a>
+		</div>
+	</div>
+</template>
