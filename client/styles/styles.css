@@ -59,6 +59,14 @@ hr.colored {
 	margin: 25px auto;
 }
 
+hr.colored2 {
+	max-width: 250px;
+	height: 2px;
+	border-top: 1px solid #18ba9b;
+	border-bottom: 1px solid #18ba9b;
+	margin: 25px auto;
+}
+
 .cite-verse {
 	color: #FFFFFF !important;
 	padding-top: 25px;
@@ -77,4 +85,13 @@ hr.colored {
 
 span.fa {
 	font-family: FontAwesome !important;
+}
+
+.fit-image {
+	width: 100%;
+	margin: 20px auto;
+}
+
+.mar-btm-40 {
+	margin-bottom: 40px !important;
 }

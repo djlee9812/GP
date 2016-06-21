@@ -1,5 +1,7 @@
 Template.contact.onRendered(function() {
-	  GoogleMaps.load();
+ GoogleMaps.load({
+  key: 'AIzaSyBm9xlVmN4MYWAghR9OTyMHAyvC_uUrNaQ'
+});
 });
 
 Template.contact.onCreated(function() {
@@ -26,3 +28,51 @@ Template.contact.helpers({
     }
   }
 });
+
+Template.contact.events({
+  'submit form': function(event) {
+    event.preventDefault();
+
+    const address = $('[name=email]').val();
+    const name = $('[name=name]').val();
+    const text = $('[name=message]').val();
+
+    if(!name) {
+      toastr.error("Please enter your name.");
+      return;
+    }
+    if(!address) {
+      toastr.error("Please enter the email address.");
+      return;
+    }
+    if(!text) {
+      toastr.error("Please enter your message.");
+      return;
+    }
+
+    //regex test for email, retest: boolean
+    const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const retest = re.test(address);
+
+    if(!retest) {
+      toastr.error("Please enter a valid email address.");
+      return;
+    }
+
+    var attr = {
+      address: address,
+      name: name,
+      text: text
+    }
+
+    Meteor.call('sendEmail', attr, function(error) {
+      if(error) {
+        console.log(error);
+        toastr.error("Email send failed.");
+      } else {
+        toastr.success("Email successfully sent!");
+        $('#contact-form')[0].reset();
+      }
+    });
+  }
+})

@@ -30,10 +30,10 @@
                   Missions
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a href="/missions/overview">Overview</a></li>
-                  <li><a href="/missions/current">Current</a></li>
-                  <li><a href="/missions/training">Training</a></li>
-                  <li><a href="/missions/apply">Apply</a></li>
+                  <li><a href="/overview">Overview</a></li>
+                  <li><a href="/current">Current</a></li>
+                  <li><a href="/training">Training</a></li>
+                  <li><a href="/apply">Apply</a></li>
                 </ul>
               </li>
 
@@ -42,8 +42,8 @@
                   Events
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a href="/events/calendar">Calendar</a></li>
-                  <li><a href="/events/gallery">Gallery</a></li>
+                  <li><a href="/calendar">Calendar</a></li>
+                  <li><a href="/gallery">Gallery</a></li>
                 </ul>
               </li>
               <!-- Blog -->
@@ -56,14 +56,29 @@
               <li>
                 <a href="/contact">Contact</a>  
               </li>
-              <li>
-                {{#if currentUser}}
-                <a href="">Logout</a>
-                {{else}}
-                <a href="/login">Login</a>
-                {{/if}}  
-                
+              {{#if currentUser}}
+              {{#if admin}}
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  Account
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <li><a href="/admin">Admin</a></li>
+                  <li><a href="#" class="click-logout">Logout</a></li>
+                </ul>
               </li>
+
+              {{else}}
+              <li>
+                <a href="#" class="click-logout">Logout</a>
+              </li>
+              {{/if}}
+              {{else}}
+              <li>
+                <a href="/login">Login</a>
+              </li>
+              {{/if}}  
+
               <li>
                 <i class="search fa fa-search search-btn"></i>
                 <div class="search-open">

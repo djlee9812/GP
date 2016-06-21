@@ -1,3 +1,7 @@
+Template.calendar.onCreated(function() {
+	Meteor.subscribe("events");
+});
+
 Template.calendar.helpers({
 	calendarOptions: {
 		height: 700,

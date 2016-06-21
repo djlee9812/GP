@@ -1,4 +1,5 @@
-Template.gallery.onCreated(() => {
+Template.gallery.onCreated( function() {
+	Meteor.subscribe("images");
 	const tmpl = Template.instance();
 	tmpl.imageLimit = new ReactiveVar(9);
 });
@@ -54,8 +55,7 @@ Template.gallery.events({
 Template.gallery.helpers({
 	photos: function() {
 		const lim = Template.instance().imageLimit.get();
-
-		return Images.find({}, {sort: {timeInserted: 1}, 
+		return Images.find({}, {sort: {timeInserted: -1}, 
 			limit: lim
 		});
 	}
