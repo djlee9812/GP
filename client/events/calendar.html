@@ -2,10 +2,32 @@
 	<!--=== Breadcrumbs ===-->
 	<div class="breadcrumbs">
 		<div class="container">
-			<h1 class="pull-left">Calendar</h1>
+			<h1 class="pull-left">Upcoming Events</h1>
 		</div>
 	</div><!--/breadcrumbs-->
 	<div class="container content">
 		{{ > ReactiveFullcalendar options=calendarOptions }}
 	</div>
+
+	<!--Hidden modal-->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="modalTitle"></h4>
+				</div>
+				<div class="modal-body">
+					<p><strong>Start: </strong> <span id="startTime"></span></p>
+					<p><strong>End: </strong> <span id="endTime"></span></p>
+					<p><strong>Description: </strong> <span id="description"></span></p>
+					<p><strong>Hosted By: </strong> <span id="hostedBy"></span></p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default rounded-btn" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary rounded-btn hidden-btn" id="link-btn"><a id="event-url-btn" class="white-anchor" href="#">Event Site</a></button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
 </template>

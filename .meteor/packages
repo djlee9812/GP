@@ -16,10 +16,8 @@ standard-minifiers      # JS/CSS minifiers run for production mode
 es5-shim                # ECMAScript 5 compatibility for older browsers.
 ecmascript              # Enable ECMAScript2015+ syntax in app code
 
-insecure                # Allow all DB writes from clients (for prototyping)
 twbs:bootstrap
 accounts-password
-ryw:blog
 iron:router
 meteorhacks:fast-render
 fortawesome:fontawesome
@@ -39,3 +37,5 @@ reactive-var
 okgrow:router-autoscroll
 chrismbeckett:toastr
 check
+andrasph:clockpicker
+rajit:bootstrap3-datepicker

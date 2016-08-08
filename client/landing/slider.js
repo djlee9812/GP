@@ -14,3 +14,8 @@ Template.slider.onRendered(function() {
 		fullScreenOffsetContainer: ".header-v3"
 	});
 });
+
+Template.slider.onDestroyed(function() {
+	$('.tp-banner').revkill();
+
+})

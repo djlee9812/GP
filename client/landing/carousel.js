@@ -33,5 +33,5 @@ Template.carousel.helpers({
 });
 
 Template.carousel.onDestroyed(() => {
-
+	$(".owl-slider-v4").data('owlCarousel').destroy();
 });

@@ -8,9 +8,19 @@
 	<!--=== End Breadcrumbs ===-->
 	<div class="container">
 		<div class="content">
+			<div class="row margin-bottom-20">
+				<h2 class="title-v2 title-center">Welcome, GP Admin</h2>
+				<p class="center-align">Click on one of the options below to complete an administrative action.</p>
+			</div>
 
-			<h2 class="title-v2 title-center">Welcome, GP Admin</h2>
-			<p class="center-align">In this admin page, you can control picture uploads and manage the blog.</p>
+			<div class="row admin-row">
+				<div class="panel-group acc-v1" id="accordion-1">
+					{{> addEvent}}
+					{{> addImage}}
+					{{> addResource}}
+					{{> addPrayer}}
+				</div>
+			</div>
 		</div>
 	</div>
 </template>

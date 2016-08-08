@@ -11,10 +11,27 @@
 					</div>
 					<!-- End About Us -->
 
+					<!-- Useful Links -->
+					<div class="col-md-3 sm-margin-bottom-40">
+						<div class="heading-footer"><h2>Upcoming Events</h2></div>
+						<ul class="list-unstyled link-news">
+							{{#each event}}
+							<li><a href="/calendar">{{title}}</a></li>
+							{{/each}}
+							{{#if none}}
+							<li><a class="no-link">No upcoming events</a></li>
+							{{/if}}
+						</ul>
+					</div>
+					<!-- End Useful Links -->
+
 					<!-- Recent News -->
 					<div class="col-md-3 sm-margin-bottom-40">
 						<div class="heading-footer"><h2>About Us</h2></div>
 						<ul class="list-unstyled link-news">
+							<li>
+								<a href="/about">About Us</a>
+							</li>
 							<li>
 								<a href="/mission">Mission Statement</a>
 							</li>
@@ -24,20 +41,6 @@
 						</ul>
 					</div>
 					<!-- End Recent News -->
-
-					<!-- Useful Links -->
-					<div class="col-md-3 sm-margin-bottom-40">
-						<div class="heading-footer"><h2>Districts</h2></div>
-						<ul class="list-unstyled footer-link-list">
-							<li><a href="/districts">Overview</a></li>
-							<li><a href="/d1">District 1</a></li>
-							<li><a href="/d2">District 2</a></li>
-							<li><a href="/d3">District 3</a></li>
-							<li><a href="/d4">District 4</a></li>
-							<li><a href="/d5">District 5</a></li>
-						</ul>
-					</div>
-					<!-- End Useful Links -->
 
 					<!-- Contacts -->
 					<div class="col-md-3">
@@ -55,7 +58,7 @@
 							</li>
 							<li>
 								<i class="radius-3x fa fa-globe"></i>
-								<a href="/contact">admin@gpusa.org</a><br>
+								<a href="/contact#contact-form-content">admin@gpusa.org</a><br>
 								<a href="/">www.gpusa.org</a>
 							</li>
 						</ul>

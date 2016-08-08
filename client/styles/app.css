@@ -516,46 +516,15 @@ h3.heading-xs {
 	border-bottom: 1px dotted #ddd;
 }
 
-/*Tables
-------------------------------------*/
-/*Basic Tables*/
-.table thead > tr > th {
-	border-bottom: none;
-}
 
-@media (max-width: 768px) {
-	.table th.hidden-sm,
-	.table td.hidden-sm {
-		display: none !important;
-	}
-}
 
 /*Forms
 ------------------------------------*/
-.form-control {
-	box-shadow: none;
-	border-radius: 0;
-}
 
-.input-group-addon {
-	border-radius: 0;
-}
 
 .form-control:focus {
 	border-color: #bbb;
 	box-shadow: 0 0 2px #c9c9c9;
-}
-
-/*Form Spacing*/
-.form-spacing .form-control {
-	margin-bottom: 15px;
-}
-
-/*Form Icons*/
-.input-group-addon {
-	color: #b3b3b3;
-	font-size: 14px;
-	background: #fff;
 }
 
 /*Navigation

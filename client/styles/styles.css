@@ -1,4 +1,4 @@
-h1, h2, h3, h4, h5, h6, a, p, span{
+h1, h2, h3, h4, h5, h6, a, p, span, label{
 	font-family: 'Raleway', sans-serif !important;
 }
 .re-title-v1, .re-title-v2 {
@@ -94,4 +94,63 @@ span.fa {
 
 .mar-btm-40 {
 	margin-bottom: 40px !important;
+}
+
+.no-hover:hover {
+	text-decoration: none;
+	color: #18ba9b !important;
+}
+.no-hover:focus {
+	color: black;
+}
+
+.form-fit {
+	width: 100%;
+}
+
+textarea {
+	resize: none;
+}
+
+.accordion-form {
+	width: 100%;
+}
+
+.side-padded {
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+.rounded-btn {
+	border-radius: 4px;
+}
+
+.hidden-btn {
+	display: none;
+}
+
+.otherBgColor {
+	background-color: #00dd00;
+}
+
+a.white-anchor {
+	color: white;
+}
+
+#event-url-btn:hover {
+	text-decoration: none;
+	color: white;
+}
+#event-url-btn:focus {
+	color: white;
+}
+
+.fc-content:hover {
+	cursor: pointer;
+}
+
+.no-link:hover {
+	cursor: default;
+	text-decoration: none;
+	color: #777 !important;
 }
