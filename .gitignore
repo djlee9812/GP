@@ -1,2 +1,5 @@
 mailgun.js
 account-fixture.js
+settings.json
+settings-development.json
+settings-production.json
