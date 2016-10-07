@@ -8,11 +8,8 @@ Template.gallery.onRendered(function() {
 	//infinite scroll event handler
 	const tmpl = Template.instance();
 	$(window).scroll(function(event) {
-		/*make sure to fix scroll height event trigger after fixing bottom display
-
-gada
-dgmadsg
-	gadsgjalsgj
+		/*
+		make sure to fix scroll height event trigger after fixing bottom display
 		*/
 		if ($(window).scrollTop() + $(window).height() >= $(document).height() - 530){	
 			const current = tmpl.imageLimit.get();

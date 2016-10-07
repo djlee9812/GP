@@ -13,27 +13,43 @@ if(!Images.findOne()) {
 
 if(!Events.findOne()) {
 	Events.insert({
-		title: "Sample Event",
-		start: new Date("June 2, 2016 11:00:00"),
-		end: new Date("June 2, 2016 14:00:00"),
-		description: "Sample event to test out features on the calendar.",
+		title: "Prayer Meeting",
+		start: new Date("September 13, 2016 19:00:00"),
+		end: new Date("September 13, 2016 21:00:00"),
+		description: "Our monthly prayer meeting to pray for the missionaries and current events.",
 		location: 'GP',
 		url: "#"
 	});
 	Events.insert({
-		title: "Sample Event 2",
-		start: new Date("June 3, 2016 13:00:00"),
-		end: new Date("June 3, 2016 14:00:00"),
-		description: "Sample event 2 to test out features on the calendar.",
-		location: 'other',
-		url: '#'
+		title: "Prayer Meeting",
+		start: new Date("October 6, 2016 10:00:00"),
+		end: new Date("October 6, 2016 12:00:00"),
+		description: "Our monthly prayer meeting to pray for the missionaries and current events.",
+		location: 'GP',
+		url: "#"
 	});
 	Events.insert({
-		title: "Sample Event 3",
-		start: new Date("June 20, 2016 13:00:00"),
-		end: new Date("June 20, 2016 23:30:00"),
-		description: "Sample event 3 to test out features on the calendar.",
-		location: 'other',
-		url: 'http://google.com'
+		title: "Prayer Meeting",
+		start: new Date("November 3, 2016 10:00:00"),
+		end: new Date("November 3, 2016 12:00:00"),
+		description: "Our monthly prayer meeting to pray for the missionaries and current events.",
+		location: 'GP',
+		url: "#"
+	});
+	Events.insert({
+		title: "Prayer Meeting",
+		start: new Date("December 1, 2016 10:00:00"),
+		end: new Date("December 1, 2016 12:00:00"),
+		description: "Our monthly prayer meeting to pray for the missionaries and current events.",
+		location: 'GP',
+		url: "#"
+	});
+}
+if(!Prayers.findOne()) {
+	Prayers.insert({
+		name: "Missionary Name",
+		location: "City, Country",
+		request: "Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem...",
+		submitted: new Date()
 	});
 }

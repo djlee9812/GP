@@ -4,4 +4,8 @@ Meteor.publish('images', function() {
 
 Meteor.publish('events', function() {
 	return Events.find();
-})
+});
+
+Meteor.publish('prayers', function() {
+	return Prayers.find();
+});

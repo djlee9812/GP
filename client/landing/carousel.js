@@ -28,7 +28,7 @@ Template.carousel.onRendered(() => {
 
 Template.carousel.helpers({
 	photos: function() {
-		return Images.find({}, {limit: 12});
+		return Images.find({}, {limit: 12, sort: {timeInserted: -1}});
 	}
 });
 

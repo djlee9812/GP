@@ -791,20 +791,6 @@
 	.header-fixed .header-v3.header-fixed-shrink .dropdown > a:after {
 		top: 57px;
 	}
-
-	/*Search Bar*/
-	.header-fixed .header-v3.header-fixed-shrink .search {
-		margin-top: 49px;
-		padding: 8px !important;
-		color: #585f69 !important;
-		background: none !important;
-	}
-
-	.header-fixed .header-v3.header-fixed-shrink .search-open {
-		top: 95px;
-		border-top: none;
-		background: rgba(255,255,255, 0.9);	
-	}
 }
 
 

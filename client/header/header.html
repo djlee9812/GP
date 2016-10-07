@@ -1,103 +1,93 @@
 <template name="header">
-  <div class="header-v3 header-sticky">
-    <!-- Navbar -->
-    <div class="navbar navbar-default mega-menu" role="navigation">
-      <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="fa fa-bars"></span>
-          </button>
-          <a class="navbar-brand" href="/">
-            <img id="logo-header" src="/logo.jpg" alt="Logo">
-          </a>
+  <div class="header-fixed">
+    <div class="header-v3 header-sticky">
+      <!-- Navbar -->
+      <div class="navbar navbar-default mega-menu" role="navigation">
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="fa fa-bars"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+              <img id="logo-header" src="/logo.jpg" alt="Logo">
+            </a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse mega-menu navbar-responsive-collapse">
+            <div class="container">
+              <ul class="nav navbar-nav">
+                <!-- Home -->
+                <li>
+                  <a href="/about">About</a>  
+                </li>
+                <!-- End Home -->
+
+                <!-- Pages -->
+                <li class="dropdown">
+                  <a href="/missions" class="dropdown-toggle" data-toggle="dropdown">
+                    Missions
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/overview">Overview</a></li>
+                    <li><a href="/current">Current</a></li>
+                    <li><a href="/prayer">Prayer</a></li>
+                    <li><a href="/training">Training</a></li>
+                    <li><a href="/apply">Apply</a></li>
+                  </ul>
+                </li>
+
+                <li class="dropdown">
+                  <a href="/events" class="dropdown-toggle" data-toggle="dropdown">
+                    Events
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/calendar">Calendar</a></li>
+                    <li><a href="/gallery">Gallery</a></li>
+                  </ul>
+                </li>
+                <!-- Blog -->
+                <li>
+                  <a href="/resources">Resources</a>  
+                </li>
+                <li>
+                  <a href="/donate">Donate</a>  
+                </li>
+                <li>
+                  <a href="/contact">Contact</a>  
+                </li>
+                {{#if currentUser}}
+                {{#if admin}}
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    Account
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-right">
+                    <li><a href="/admin">Admin</a></li>
+                    <li><a href="#" class="click-logout">Logout</a></li>
+                  </ul>
+                </li>
+
+                {{else}}
+                <li>
+                  <a href="#" class="click-logout">Logout</a>
+                </li>
+                {{/if}}
+                {{else}}
+                <li>
+                  <a href="/login">Login</a>
+                </li>
+                {{/if}}  
+              </ul>
+
+            </div><!--/end container-->
+          </div><!--/navbar-collapse-->
         </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse mega-menu navbar-responsive-collapse">
-          <div class="container">
-            <ul class="nav navbar-nav">
-              <!-- Home -->
-              <li>
-                <a href="/about">About</a>  
-              </li>
-              <!-- End Home -->
-
-              <!-- Pages -->
-              <li class="dropdown">
-                <a href="/missions" class="dropdown-toggle" data-toggle="dropdown">
-                  Missions
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a href="/overview">Overview</a></li>
-                  <li><a href="/current">Current</a></li>
-                  <li><a href="/prayer">Prayer</a></li>
-                  <li><a href="/training">Training</a></li>
-                  <li><a href="/apply">Apply</a></li>
-                </ul>
-              </li>
-
-              <li class="dropdown">
-                <a href="/events" class="dropdown-toggle" data-toggle="dropdown">
-                  Events
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a href="/calendar">Calendar</a></li>
-                  <li><a href="/gallery">Gallery</a></li>
-                </ul>
-              </li>
-              <!-- Blog -->
-              <li>
-                <a href="/resources">Resources</a>  
-              </li>
-              <li>
-                <a href="/donate">Donate</a>  
-              </li>
-              <li>
-                <a href="/contact">Contact</a>  
-              </li>
-              {{#if currentUser}}
-              {{#if admin}}
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  Account
-                </a>
-                <ul class="dropdown-menu dropdown-menu-right">
-                  <li><a href="/admin">Admin</a></li>
-                  <li><a href="#" class="click-logout">Logout</a></li>
-                </ul>
-              </li>
-
-              {{else}}
-              <li>
-                <a href="#" class="click-logout">Logout</a>
-              </li>
-              {{/if}}
-              {{else}}
-              <li>
-                <a href="/login">Login</a>
-              </li>
-              {{/if}}  
-
-              <li>
-                <i class="search fa fa-search search-btn"></i>
-                <div class="search-open">
-                  <div class="input-group animated fadeInDown">
-                    <input type="text" class="form-control" placeholder="Search">
-                    <span class="input-group-btn">
-                      <button class="btn-u" type="button">Go</button>
-                    </span>
-                  </div>
-                </div>
-              </li>
-            </ul>
-
-          </div><!--/end container-->
-        </div><!--/navbar-collapse-->
       </div>
+      <!-- End Navbar -->
     </div>
-    <!-- End Navbar -->
   </div>
   <!--=== End Header v3 ===-->
 </template>

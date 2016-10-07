@@ -23,6 +23,12 @@ Template.calendar.helpers({
       $('#endTime').html(moment(event.end._d).format("MMMM D, YYYY, h:mm a"));
       $('#description').html(event.description);
       $('#hostedBy').html(event.location);
+      if(event.location==='GP') {
+        $('#js-modal-body').append('<p id="address"><strong>Address: </strong>10582 Katella Ave. Anaheim, CA 92804</p>');
+        $('#myModal').on('hidden.bs.modal', function () {
+          $("#address").remove();
+        })
+      }
 
       //if url exists
       if(event.url !== "#") {

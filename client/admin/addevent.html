@@ -57,6 +57,7 @@
 							<label class="radio-inline"><input type="radio" name="optradio" id="GP" value="GP">GP</label>
 							<label class="radio-inline"><input type="radio" name="optradio" id="other" value="Other">Other</label>
 						</div>
+						
 						{{#if other}}
 						<label for="host-like">Link to host's event</label>
 						<div class="input-group">
@@ -72,6 +73,8 @@
 							<small class="text-muted">Leave blank if no link available.</small>
 						</div>
 						{{/if}}
+						<label for="featured">Landing Page Feature&nbsp;</label>
+						<input type="checkbox" name="featured" id="featured" value="Landing page feature">
 						<div class="form-group">
 							<button type="submit" class="btn btn-primary rounded-btn">Submit</button>
 						</div>

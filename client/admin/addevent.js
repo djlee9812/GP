@@ -40,13 +40,12 @@ Template.addEvent.events({
 		const description = $('#event-description').val();
 		const host = $('input[name=optradio]:checked').val();
 		let link = "#";
+		const checked = $("input[name=featured]").is(':checked');
 
-		if(host === "Other") {
+		if(host === "Other" && ($('input[name=host-link]').val() !== "")) {
 			link = "http://" + $('input[name=host-link]').val();
 		}
-
 		console.log(link);
-
 		const startString = date + " " + startingTime;
 		const start = moment(startString, "MM/DD/YYYY HH:mm");
 		const endString = date + " " + endingTime;
@@ -94,7 +93,8 @@ Template.addEvent.events({
 					end: end.toDate(),
 					description: description,
 					location: host,
-					link: link
+					link: link,
+					featured: checked
 				};	
 
 				Meteor.call("insertEvent", attr, function(error, result) {
@@ -114,7 +114,8 @@ Template.addEvent.events({
 				end: end.toDate(),
 				description: description,
 				location: host,
-				link: link
+				link: link,
+				featured: checked
 			};	
 
 			Meteor.call("insertEvent", attr, function(error, result) {
