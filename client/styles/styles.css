@@ -232,3 +232,7 @@ a.white-anchor {
 	outline: 1px dotted #000;
 	outline: -webkit-focus-ring-color auto 5px;
 }
+
+.big-subheading {
+	font-size: 16px;
+}

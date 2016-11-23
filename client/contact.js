@@ -68,7 +68,7 @@ Template.contact.events({
     Meteor.call('sendEmail', attr, function(error) {
       if(error) {
         console.log(error);
-        toastr.error("Email send failed.");
+        toastr.error("Email send failed. Please email your message to admin@gpusa.org");
       } else {
         toastr.success("Email successfully sent!");
         $('#contact-form')[0].reset();

@@ -1,5 +1,5 @@
-mailgun.js
-account-fixture.js
+server/mailgun.js
+server/account-fixture.js
 settings.json
 settings-development.json
 my-meteor-deployment/*

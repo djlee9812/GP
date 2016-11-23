@@ -1,11 +1,14 @@
 Meteor.methods({
   sendEmail: function(email) {
+    check(email, {
+      address: String,
+      name: String,
+      text: String
+    });
+
     const address = email.address;
     const name = email.name;
     const txt = email.text;
-
-    check([address, name, txt], String);
-
     this.unblock();
 
     Email.send({
