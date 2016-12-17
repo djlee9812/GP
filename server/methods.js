@@ -24,7 +24,7 @@ Meteor.methods({
       title: String,
       start: Date,
       end: Date,
-      description: String,
+      description: Match.Optional(String),
       location: String,
       link: Match.Optional(String),
       featured: Boolean
@@ -53,6 +53,21 @@ Meteor.methods({
       featured: featured
     });
 
+  },
+
+  deleteEvent: function(requestId) {
+    check(requestId, String);
+    if (this.userId !== Meteor.users.findOne({username: 'admin'})._id) {
+      throw new Meteor.Error('user-not-authorized');
+    }
+    Events.remove(requestId);
+  },
+
+  editEvent: function(requestId, eventAttr) {
+    check(requestId, String);
+    if (this.userId !== Meteor.users.findOne({username: 'admin'})._id) {
+      throw new Meteor.Error('user-not-authorized');
+    }
   },
 
   insertPrayer: function(prayerAttr) {

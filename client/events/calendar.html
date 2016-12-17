@@ -24,6 +24,12 @@
 					<p><strong>Hosted By: </strong> <span id="hostedBy"></span></p>
 				</div>
 				<div class="modal-footer">
+					{{#if currentUser}}
+					{{#if admin}}
+					<button type="button" class="btn btn-info rounded-btn" id="edit-btn">Edit</button>
+					<button type="button" class="btn btn-danger rounded-btn" id="delete-btn">Delete</button>
+					{{/if}}
+					{{/if}}
 					<button type="button" class="btn btn-default rounded-btn" data-dismiss="modal">Close</button>
 					<button type="button" class="btn btn-primary rounded-btn hidden-btn" id="link-btn"><a id="event-url-btn" class="white-anchor" target="_blank" href="#">Event Site</a></button>
 				</div>

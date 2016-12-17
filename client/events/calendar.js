@@ -2,6 +2,8 @@ Template.calendar.onCreated(function() {
 	Meteor.subscribe("events");
 });
 
+let eventId = new ReactiveVar("");
+
 Template.calendar.helpers({
 	calendarOptions: {
 		height: 700,
@@ -17,7 +19,9 @@ Template.calendar.helpers({
         element.css({'background-color': '#2980b9', 'border-color': '#2980b9'});
       } 
     },
+    nextDayThreshold: "07:00:00",
     eventClick: function( event, jsEvent, view ) {
+      eventId.set(event._id);
       $('#modalTitle').html(event.title);
       $('#startTime').html(moment(event.start._d).format("MMMM D, YYYY, h:mm a"));
       $('#endTime').html(moment(event.end._d).format("MMMM D, YYYY, h:mm a"));
@@ -48,6 +52,9 @@ Template.calendar.helpers({
       $('#myModal').modal('toggle');
     },
   }, 
+  'admin': function() {
+    return Meteor.userId() === Meteor.users.findOne({username: 'admin'})._id;
+  },
 });
 
 Template.calendar.events({
@@ -64,6 +71,23 @@ Template.calendar.events({
     }
   },
   'click a.fc-day-grid-event': function(event) {
+    event.preventDefault();
+  },
+  'click #delete-btn': function(event) {
+    event.preventDefault();
+    if(window.confirm("Delete?")) {
+      Meteor.call('deleteEvent', eventId.get(), function(error, result) {
+        if(error) {
+          toastr.error("Error");
+          console.log(error);
+        } else {
+          toastr.success("Event deleted");
+          Router.go('/calendar');
+        }
+      }); 
+    }
+  },
+  'click #edit-btn': function(event) {
     event.preventDefault();
   }
 });

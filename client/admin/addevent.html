@@ -19,17 +19,20 @@
 								<i class="fa fa-pencil" aria-hidden="true"></i>
 							</span>
 						</div>
+						<label for="featured">Multi-day Event&nbsp;</label>
+						<input type="checkbox" name="multiday" id="multiday" value="Multi-day Event">
+						<br><br>
 						<div class="row margin-bottom-20">
-							<div class="col-md-4">
+							<div class="{{colSize}}">
 								<label for="date">Date</label>
 								<div class="input-group">
-									<input type="text" class="datepicker form-control" name="date" id="date" value="{{today}}">
+									<input type="text" class="form-control" name="date" id="date" value="{{today}}">
 									<span class="input-group-addon">
 										<i class="fa fa-calendar" aria-hidden="true"></i>
 									</span>
 								</div>
 							</div>
-							<div class="col-md-4">
+							<div class="{{colSize}}">
 								<label for="starting-time">Starting Time</label>
 								<div class="clockpicker input-group">
 									<input type="text" class="form-control" name="starting-time" value="08:00" id="starting-time" onkeypress='return event.charCode >= 48 && event.charCode <= 58'>
@@ -38,7 +41,18 @@
 									</span>
 								</div>
 							</div>
-							<div class="col-md-4">
+							{{#if multi}}
+							<div class="col-md-3">
+								<label for="end-date">Ending Date</label>
+								<div class="input-group">
+									<input type="text" class="form-control" data-provide="datepicker" name="end-date" id="end-date" value="{{today}}">
+									<span class="input-group-addon">
+										<i class="fa fa-calendar" aria-hidden="true"></i>
+									</span>
+								</div>
+							</div>
+							{{/if}}
+							<div class="{{colSize}}">
 								<label for="ending-time">Ending Time</label>
 								<div class="clockpicker input-group">
 									<input type="text" class="form-control" name="ending-time" id="ending-time" value="10:00" onkeypress='return event.charCode >= 48 && event.charCode <= 58'>

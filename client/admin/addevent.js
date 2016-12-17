@@ -1,9 +1,10 @@
 Template.addEvent.onCreated(function() {
 	Template.instance().checked = new ReactiveVar(false);
+	Template.instance().multiday = new ReactiveVar(false);
 })
 
 Template.addEvent.onRendered(function() {
-	$('.datepicker').datepicker({startDate: '3d', orientation: 'bottom auto'});
+	$('#date').datepicker({startDate: '3d', orientation: 'bottom auto'});
 	$('.clockpicker').clockpicker();
 });
 
@@ -14,6 +15,15 @@ Template.addEvent.helpers({
 	'today': function() {
 		const today = moment(new Date()).format("MM/DD/YYYY");
 		return today;
+	},
+	'colSize': function() {
+		if(Template.instance().multiday.get()) {
+			return "col-md-3";
+		}
+		return "col-md-4";
+	},
+	'multi': function() {
+		return Template.instance().multiday.get();
 	}
 });
 
@@ -23,6 +33,13 @@ Template.addEvent.events({
 	},
 	'click #GP': function() {
 		Template.instance().checked.set(false);
+	},
+	'click #multiday': function() {
+		if(Template.instance().multiday.get()) {
+			Template.instance().multiday.set(false);
+		} else {
+			Template.instance().multiday.set(true);
+		}
 	},
 	'submit form#event-form': function(event) {
 		event.preventDefault();
@@ -41,15 +58,24 @@ Template.addEvent.events({
 		const host = $('input[name=optradio]:checked').val();
 		let link = "#";
 		const checked = $("input[name=featured]").is(':checked');
+		const multiday = $("input[name=multiday]").is(':checked');
 
 		if(host === "Other" && ($('input[name=host-link]').val() !== "")) {
 			link = "http://" + $('input[name=host-link]').val();
 		}
-		console.log(link);
+
+		let endString = "";
+
 		const startString = date + " " + startingTime;
-		const start = moment(startString, "MM/DD/YYYY HH:mm");
-		const endString = date + " " + endingTime;
-		const end = moment(endString, "MM/DD/YYYY HH:mm");
+		const start = moment(startString, "MM/DD/YYYY HH:mm").toDate();
+
+		if(multiday) {
+			const endDate = $('#end-date').val();
+			endString = endDate + " " + endingTime;
+		} else {
+			endString = date + " " + endingTime;
+		}
+		const end = moment(endString, "MM/DD/YYYY HH:mm").toDate();
 
 		if(!name) {
 			toastr.error("You must enter an event name");
@@ -67,16 +93,16 @@ Template.addEvent.events({
 			toastr.error("You must enter the end time");
 			return;
 		}
-		if(!description) {
-			toastr.error("You must write a description for the event");
-			return;
-		}
 		if(!host) {
 			toastr.error("Select the party hosting this event.");
 			return;
 		}
-		if(!start.toDate() || !end.toDate()){
+		if(!start || !end){
 			toastr.error('Please check to make sure the time is entered correctly.');
+			return;
+		}
+		if(start.getTime() > end.getTime()) {
+			toastr.error("Please make sure the start time is before the end.");
 			return;
 		}
 
@@ -89,8 +115,8 @@ Template.addEvent.events({
 			} else {
 				const attr = {
 					title: name,
-					start: start.toDate(),
-					end: end.toDate(),
+					start: start,
+					end: end,
 					description: description,
 					location: host,
 					link: link,
@@ -110,8 +136,8 @@ Template.addEvent.events({
 		} else {
 			const attr = {
 				title: name,
-				start: start.toDate(),
-				end: end.toDate(),
+				start: start,
+				end: end,
 				description: description,
 				location: host,
 				link: link,
