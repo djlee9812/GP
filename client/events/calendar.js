@@ -75,19 +75,33 @@ Template.calendar.events({
   },
   'click #delete-btn': function(event) {
     event.preventDefault();
-    if(window.confirm("Delete?")) {
-      Meteor.call('deleteEvent', eventId.get(), function(error, result) {
-        if(error) {
-          toastr.error("Error");
-          console.log(error);
-        } else {
-          toastr.success("Event deleted");
-          Router.go('/calendar');
+    if(Meteor.userId() === Meteor.users.findOne({username: 'admin'})._id) {
+      bootbox.confirm("Are you sure you want to delete?", function(result) {
+        if(result) {
+          Meteor.call('deleteEvent', eventId.get(), function(error, result) {
+            if(error) {
+              toastr.error("Error");
+              console.log(error);
+            } else {
+              toastr.success("Event deleted");
+              Router.go('/calendar');
+            }
+          }); 
         }
-      }); 
+      });
+    } else {
+      toastr.error("Permission error");
     }
   },
   'click #edit-btn': function(event) {
     event.preventDefault();
-  }
+    if(Meteor.userId() === Meteor.users.findOne({username: 'admin'})._id) {
+      $('#myModal').modal('hide');
+      $('body').removeClass('modal-open');
+      $('.modal-backdrop').remove();
+      Router.go('edit', {_id: eventId.get()});
+    } else {
+      toastr.error("Permission error");
+    }
+  },
 });

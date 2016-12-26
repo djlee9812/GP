@@ -36,13 +36,6 @@ Template.addImage.helpers({
 });
 
 Template.addImage.events({
-	'change .inputfile'(event) {
-		if(event.target.files.length > 1) {
-			event.preventDefault();
-			toastr.warning("Please select a single image");
-		}
-	},
-
 	'submit form': function(event) {
 		event.preventDefault();
 
@@ -51,43 +44,30 @@ Template.addImage.events({
 			router.go('/');
 			return;
 		}
-		const title = $('input[name=image-title]').val();
-		const imgName = event.target[1].files[0].name;
+		var fileobj = $("input#file").prop('files');
+		$.each(fileobj, function(i, val) {
+			let uploader = new Slingshot.Upload("myImageUploads");
+			let imgName = val.name;
+			uploader.send(val, function (error, downloadUrl) {
+				upload.set()
+				if (error) {
+			    // Log service detailed response
+			    console.error('Error uploading', uploader.xhr.response);
+			    console.error(error);
+			    toastr.error("Error uploading");
+			  } else {
+			  	Meteor.call("uploadImg", imgName, function(error) {
+			  		if(error) {
+			  			toastr.error("Error adding images to the database");
+			  		} else {
+			  			toastr.success("Image added!");
+			  			Router.go('/gallery')
+			  		}
+			  	});
 
-		if(event.target[1].files.length > 1){
-			toastr.error('Please select a single image');
-			return;
-		}
-		if(!title){
-			toastr.error('Please enter an event title.');
-			return;
-		}
-		
-		const uploader = new Slingshot.Upload("myImageUploads");
-
-		uploader.send(event.target[1].files[0], function (error, downloadUrl) {
-			if (error) {
-		    // Log service detailed response
-		    console.error('Error uploading', uploader.xhr.response);
-		    console.error(error);
-		    toastr.error("Error uploading");
-		  }
-		  else {
-		  	const attr = {
-		  		title: title,
-		  		src: imgName
-		  	}
-		  	Meteor.call("uploadImg", attr, function(error) {
-		  		if(error) {
-		  			toastr.error("Error adding to database");
-		  		} else {
-		  			toastr.success("Image added!");
-		  			router.go("/gallery");
-		  		}
-		  	});
-		  	
-		  }
+			  }
+			});
+			upload.set(uploader);
 		});
-		upload.set(uploader);
 	}
 });

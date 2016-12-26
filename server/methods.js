@@ -68,6 +68,32 @@ Meteor.methods({
     if (this.userId !== Meteor.users.findOne({username: 'admin'})._id) {
       throw new Meteor.Error('user-not-authorized');
     }
+    check(eventAttr, {
+      title: String,
+      start: Date,
+      end: Date,
+      description: Match.Optional(String),
+      location: String,
+      link: Match.Optional(String),
+      featured: Boolean
+    });
+    const title = eventAttr.title;
+    const start = eventAttr.start;
+    const end = eventAttr.end;
+    const description = eventAttr.description;
+    const location = eventAttr.location;
+    const link = eventAttr.link;
+    const featured = eventAttr.featured;
+
+    Events.update(requestId, {
+      title: title,
+      start: start,
+      end: end,
+      description: description,
+      location: location,
+      url: link,
+      featured: featured
+    });
   },
 
   insertPrayer: function(prayerAttr) {
@@ -100,24 +126,42 @@ Meteor.methods({
     Prayers.remove(requestId);
   },
 
-  uploadImg: function(attr) {
-    check(attr, {
-      title: String,
-      src: String,
-    });
+  uploadImg: function(src) {
+    check(src, String);
 
     if(this.userId !== Meteor.users.findOne({username: 'admin'})._id) {
       throw new Meteor.Error("not-admin", 
         "You must be an admin to take this action.");
     }
 
-    const title = attr.title;
-    const src = attr.src;
-
     Images.insert({
-      title: title,
       src: src,
       timeInserted: new Date(),
     });
+  },
+
+  deleteImg: function(imgId) {
+    AWS.config.update({
+      accessKeyId: Meteor.settings.AWSAccessKeyId,
+      secretAccessKey: Meteor.settings.AWSSecretAccessKey
+    });
+
+    var s3 = new AWS.S3();
+    var key = Images.findOne(imgId).src;
+    var objectKey = "img/" + key;
+    var params = {
+      Bucket: Meteor.settings.Bucket,
+      Key: objectKey
+    };
+    
+    var deleteObject = Meteor.wrapAsync(
+      s3.deleteObject(params, Meteor.bindEnvironment(function(error, data) {
+        if(error) {
+          console.log(error);
+        } else {
+          Images.remove(imgId);
+        }
+      }))
+    );
   },
 });

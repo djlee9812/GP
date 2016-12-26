@@ -1,0 +1,99 @@
+<template name="edit">
+	<div class="breadcrumbs">
+		<div class="container">
+			<h1 class="pull-left">Event Edits</h1>
+		</div>
+	</div><!--/breadcrumbs-->
+	<div class="container">
+		<div class="margin-bottom-60">
+			<h2 class="title-v2 title-center">EDIT THIS EVENT</h2>
+			<p class="center-align">To edit the event, change the fields below and resubmit.</p>
+			<div class="row">
+				<form role="form" id="event-form">
+					<div class="side-padded">
+						<label for="event-name">Name of Event</label>
+						<div class="input-group margin-bottom-20">
+							<input type="text" class="form-control" placeholder="Title Your Event" name="event-name" id="event-name" value="{{title}}">
+							<span class="input-group-addon">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+							</span>
+						</div>
+						<label for="featured">Multi-day Event&nbsp;</label>
+						<input type="checkbox" name="multiday" id="multiday" value="Multi-day Event">
+						<br><br>
+						<div class="row margin-bottom-20">
+							<div class="{{colSize}}">
+								<label for="date">Date</label>
+								<div class="input-group">
+									<input type="text" class="form-control" name="date" id="date" value="{{date1}}">
+									<span class="input-group-addon">
+										<i class="fa fa-calendar" aria-hidden="true"></i>
+									</span>
+								</div>
+							</div>
+							<div class="{{colSize}}">
+								<label for="starting-time">Starting Time</label>
+								<div class="clockpicker input-group">
+									<input type="text" class="form-control" name="starting-time" value="{{time1}}" id="starting-time" onkeypress='return event.charCode >= 48 && event.charCode <= 58'>
+									<span class="input-group-addon">
+										<i class="fa fa-clock-o" aria-hidden="true"></i>
+									</span>
+								</div>
+							</div>
+							{{#if multi}}
+							<div class="col-md-3">
+								<label for="end-date">Ending Date</label>
+								<div class="input-group">
+									<input type="text" class="form-control" data-provide="datepicker" name="end-date" id="end-date" value="{{date2}}">
+									<span class="input-group-addon">
+										<i class="fa fa-calendar" aria-hidden="true"></i>
+									</span>
+								</div>
+							</div>
+							{{/if}}
+							<div class="{{colSize}}">
+								<label for="ending-time">Ending Time</label>
+								<div class="clockpicker input-group">
+									<input type="text" class="form-control" name="ending-time" id="ending-time" value="{{time2}}" onkeypress='return event.charCode >= 48 && event.charCode <= 58'>
+									<span class="input-group-addon">
+										<i class="fa fa-clock-o" aria-hidden="true"></i>
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="event-description">Description</label>
+							<textarea class="form-control" placeholder="Write an event description..." id="event-description" name="event-description" rows="5" value="{{description}}"></textarea>
+						</div>
+						<div class="form-group">
+							<label>Select the host of the event</label><br/>
+							<label class="radio-inline"><input type="radio" name="optradio" id="GP" value="GP">GP</label>
+							<label class="radio-inline"><input type="radio" name="optradio" id="other" value="Other">Other</label>
+						</div>
+
+						{{#if other}}
+						<label for="host-like">Link to host's event</label>
+						<div class="input-group">
+							<span class="input-group-addon">
+								http://
+							</span>
+							<input type="text" class="form-control" name="host-link" id="host-link">
+							<span class="input-group-addon">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+							</span>
+						</div>
+						<div class="margin-bottom-20">
+							<small class="text-muted">Leave blank if no link available.</small>
+						</div>
+						{{/if}}
+						<label for="featured">Landing Page Feature&nbsp;</label>
+						<input type="checkbox" name="featured" id="featured" value="Landing page feature">
+						<div class="form-group">
+							<button type="submit" class="btn btn-primary rounded-btn">Submit</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</template>
