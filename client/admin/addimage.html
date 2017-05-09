@@ -14,13 +14,14 @@
 						<h5 class="margin-bottom-20">Attach below to add images to the gallery.</h5>
 						<div class="form-group">
 							<input type="file" name="file" id="file" class="inputfile" accept="image/*" data-multiple-caption="{count} files selected" multiple />
-							<label for="file">Upload an Image <span class="unbolded-text"></span></label>
+							<label for="file">Upload Images <span class="unbolded-text"></span></label>
+							<small>Max Upload: 5 Images</small>
 						</div>
 						<div class="form-group">
 							<button type="submit" class="btn btn-primary rounded-btn">Submit</button>
 						</div>
 						<div class="progress">
-							<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progress}}%;">
+							<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="5" style="width: {{progress}}%;">
 								<span class="sr-only">{{progress}}% Complete</span>
 							</div>
 						</div>

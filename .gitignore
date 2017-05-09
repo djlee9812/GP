@@ -3,3 +3,4 @@ server/account-fixture.js
 settings.json
 settings-development.json
 my-meteor-deployment/*
+server/slingshot.js

@@ -1,3 +1,7 @@
+Template.picture.onCreated( function() {
+	Meteor.subscribe("images");
+});
+
 Template.picture.helpers({
 	'admin': function() {
 		return Meteor.userId() === Meteor.users.findOne({username: 'admin'})._id;
@@ -14,6 +18,7 @@ Template.picture.events({
 					if(err) {
 						toastr.error("error");
 						console.log(err);
+					} else {
 					}
 				});
 			}

@@ -4,7 +4,7 @@ Slingshot.fileRestrictions( "myImageUploads", {
 });
 
 Slingshot.createDirective( "myImageUploads", Slingshot.S3Storage, {
-  bucket: "gp-website-files",
+  bucket: Meteor.settings.Bucket,
   acl: "public-read",
   region: "us-west-2",
 

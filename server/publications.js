@@ -9,3 +9,7 @@ Meteor.publish('events', function() {
 Meteor.publish('prayers', function() {
 	return Prayers.find();
 });
+
+Meteor.publish('announcements', function() {
+	return Announcements.find();
+});

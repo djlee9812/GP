@@ -11,6 +11,12 @@ if(!Images.findOne()) {
 	}
 }
 
+if(!Announcements.findOne()) {
+	Announcements.insert({
+		training: false,
+	});
+}
+
 if(!Events.findOne()) {
 	Events.insert({
 		title: "Prayer Meeting",

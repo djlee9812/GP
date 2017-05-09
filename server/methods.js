@@ -164,4 +164,16 @@ Meteor.methods({
       }))
     );
   },
+  updateAnnouncement: function(name) {
+    if(!name) {
+      Announcements.update({}, {training: false});
+      return;
+    } 
+    if(name === "New Training"){
+      Announcements.update({}, {training: true});
+      return;
+    } else {
+      throw new Meteor.Error('lol', 'lolol');
+    }
+  }
 });

@@ -1,0 +1,25 @@
+<template name="announcement">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a class="accordion-toggle no-hover" data-toggle="collapse" data-parent="#accordion-5" href="#collapse-Five">
+					Announcements
+				</a>
+			</h4>
+		</div>
+		<div id="collapse-Five" class="panel-collapse collapse">
+			<div class="panel-body">
+				<form role="form" id="event-form" class="accordion-form">
+					<div class="side-padded">
+						<h5 class="margin-bottom-20">Check an announcement you wish to display.</h5>
+						<label for="featured">New Training&nbsp;</label>
+						<input type="checkbox" name="training" id="training" value="New Training">
+						<div class="form-group">
+							<button type="submit" class="btn btn-primary rounded-btn">Submit</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</template>

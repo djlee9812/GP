@@ -1,4 +1,4 @@
-h1, h2, h3, h4, h5, h6, a, p, span, label, li{
+h1, h2, h3, h4, h5, h6, a, p, span, label, li, input, td, option{
 	font-family: 'Raleway', sans-serif !important;
 }
 .re-title-v1, .re-title-v2 {
@@ -240,4 +240,12 @@ a.white-anchor {
 .trash-btn {
 	z-index: 1000;
 	position: absolute;
+}
+
+a.plain {
+	color: #555;
+}
+
+a.plain > i.fa {
+	color: #18ba9b;
 }
